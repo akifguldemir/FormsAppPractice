@@ -11,6 +11,7 @@ namespace FormsAppPractice.Models
         [Display(Name="Urun ID")]
         public int Id { get; set; }
 
+        [Required]
         [Display(Name="Ad")]
         public string? Name { get; set; }
 
@@ -19,7 +20,11 @@ namespace FormsAppPractice.Models
 
         [Display(Name="Resim")]
         public string? Image { get; set; }
+
+        [Display(Name="Aktif")]
         public bool IsActive { get; set; }
+
+        [Display(Name="Kategori")]
         public int CategoryId { get; set; }
     }
 }
