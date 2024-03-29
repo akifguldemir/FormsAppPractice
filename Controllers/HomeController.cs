@@ -40,7 +40,7 @@ public class HomeController : Controller
 
     public IActionResult Create()
     {
-
+        ViewBag.Categories = new SelectList(Repository.GetCategories, "Id", "Name");
         return View();
     }
 
