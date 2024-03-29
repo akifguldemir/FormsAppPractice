@@ -47,8 +47,14 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Create(Product product)
     {
-        Repository.AddProduct(product);
-        return RedirectToAction("Index");
+        if(ModelState.IsValid) {
+            product.Id = Repository.GetProducts.Count;
+            Repository.AddProduct(product);
+            return RedirectToAction("Index");
+        }
+        ViewBag.Categories = new SelectList(Repository.GetCategories, "Id", "Name");
+        return View(product);
+
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
