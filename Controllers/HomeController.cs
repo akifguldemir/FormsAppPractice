@@ -28,12 +28,26 @@ public class HomeController : Controller
         {
             products = products.Where(p => p.CategoryId == int.Parse(category)).ToList();
         }
-        ViewBag.Categories = new SelectList(Repository.GetCategories, "Id", "Name", category);
-        return View(products);
+        // ViewBag.Categories = new SelectList(Repository.GetCategories, "Id", "Name", category);
+
+        var model = new ProductViewModel {
+            Products = products,
+            Categories = Repository.GetCategories,
+            SelectedCategory = category
+        };
+        return View(model);
     }
 
-    public IActionResult Privacy()
+    public IActionResult Create()
     {
+
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Product nodel)
+    {
+
         return View();
     }
 
