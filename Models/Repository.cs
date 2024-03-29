@@ -33,10 +33,16 @@ namespace FormsAppPractice.Models
             }
         }
 
-          public static List<Category> GetCategories{
+        public static void AddProduct(Product product)
+        {
+            _products.Add(product);
+        }
+
+        public static List<Category> GetCategories{
             get {
                 return _categories;
             }
         }
+
     }
 }

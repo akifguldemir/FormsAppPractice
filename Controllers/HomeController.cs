@@ -45,10 +45,10 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Create(Product nodel)
+    public IActionResult Create(Product product)
     {
-
-        return View();
+        Repository.AddProduct(product);
+        return RedirectToAction("Index");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
